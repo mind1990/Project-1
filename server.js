@@ -5,6 +5,23 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const db = require('./models');
+
+// Get all memories (json data) at this endpoint
+app.get('/api/memories', (req, res) => {
+  db.Memory.find((err, allMemories) => {
+    if(err) throw err;
+    res.json(allMemories);
+  });
+});
+
+// Get all users (json data) at this endpoint
+app.get('/api/users', (req, res) => {
+  db.User.find((err, allUsers) => {
+    if (err) throw err;
+    res.json(allUsers);
+  });
+});
 
 // allow cross origin requests (optional)
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
