@@ -18,6 +18,10 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/views/landing.html');
+});
+
 app.get('/index', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -28,10 +32,12 @@ app.get('/memories', (req, res) => {
 
 // Get all memories (json data) at this endpoint
 app.get('/api/memories', (req, res) => {
-  db.Memory.find((err, allMemories) => {
-    if(err) throw err;
-    res.json(allMemories);
-  });
+  db.Memory.find()
+    .populate('user')
+    .exec((err, allMemories) => {
+      if(err) throw err;
+      res.json(allMemories);
+    })
 });
 
 // Get all users (json data) at this endpoint
