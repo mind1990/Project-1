@@ -30,6 +30,10 @@ app.get('/memories', (req, res) => {
   res.sendFile(__dirname + '/views/memories.html');
 });
 
+app.get('/create-memory', (req, res) => {
+  res.sendFile(__dirname + '/views/create-memory.html');
+});
+
 // Get all memories (json data) at this endpoint
 app.get('/api/memories', (req, res) => {
   db.Memory.find()
@@ -49,13 +53,30 @@ app.get('/api/users', (req, res) => {
 });
 
 // Find all memories and render
-app.get('/memories'), (req, res) => {
+app.get('/memories', (req, res) => {
   db.Memory.find((err, allMemories) => {
     if(err) throw err;
     res.json(allMemories)
   });
+});
 
-}
+// Create a new memory
+app.post('/api/memories', (req, res) => {
+  let newMemory = req.body;
+  db.Memory.create(newMemory, (err, newMemory) => {
+    if (err) throw err;
+    res.json(newMemory);
+  });
+});
+
+// Delete a memory
+app.delete('/api/memories/:id', (req, res) => {
+  let id = req.params.id;
+  db.Memory.findOneAndDelete({_id: id}, (err, deletedMemory) => {
+    if (err) throw err;
+    res.json(deletedMemory);
+  });
+});
 
 
 app.listen(process.env.PORT || 3000, () => {
