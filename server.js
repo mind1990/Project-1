@@ -69,6 +69,17 @@ app.post('/api/memories', (req, res) => {
   });
 });
 
+// Edit memory
+app.put('/api/memories/:id', (req, res) => {
+  let content = req.body;
+  let id = req.params.id;
+  db.Memory.findByIdAndUpdate(id, content, {new: true}, (err, editDesc) => {
+    if(err) throw err;
+    console.log(editDesc);
+    res.json(editDesc);
+  });
+});
+
 // Delete a memory
 app.delete('/api/memories/:id', (req, res) => {
   let id = req.params.id;

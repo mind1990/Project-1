@@ -15,12 +15,13 @@ $(document).ready(function(){
           <div class="row" id="${memoryId}">
             <div class="col-lg-2">
               <h3>${response[i].name}</h3>
-              <a id="delete-memory" class="btn btn-sm btn-warning">Edit Memory</a>
-              <a id="edit-memory" class="btn btn-sm btn-danger">Delete Memory</a>
+              <div id="render-form"></div>
+              <a id="edit-memory" class="btn btn-sm btn-warning">Edit Memory</a>
+              <a id="delete-memory" class="btn btn-sm btn-danger">Delete Memory</a>
             </div>
             <div class="col-lg-8">
               <img src="${response[i].image}">
-              <h4>${response[i].description} on ${response[i].date}</h4>
+              <h4 class="memory-desc">${response[i].description}</h4> on <h4 class="memory-date">${response[i].date}</h4>
             </div>
           </div>
         `)
@@ -65,8 +66,49 @@ $(document).ready(function(){
     });
   });
 
-  $('#render-memories').on('click', '#edit-memory')
+// Edit click listener
+  $('#render-memories').on('click', '#edit-memory', function() {
+    let editMemoryDesc = $(this).parent().siblings('.col-lg-8').children('.memory-desc').text();
+    let editMemoryDate = $(this).parent().siblings('.col-lg-8').children('.memory-date').text();
+    console.log(editMemoryDesc);
+    console.log(editMemoryDate);
+    $(this).hide();
+    $(this).siblings('#render-form').append(`
+      <form class="formInfo">
+        <input class="edit-form" type="text" name="description" value="${editMemoryDesc}">
+        <input class="edit-form" type="text" name="date" value="${editMemoryDate}">
+        <input id="submit-form" class="btn btn-success btn-sm" type="submit">
+        <a id="cancel-form" class="btn btn-danger btn-sm">Cancel</a>
+      </form>
+    `)
+  })
 
+// Toggle edit form
+  $('#render-memories').on('click', '#cancel-form', function() {
+    $(this).parent('form').parent().siblings('#edit-memory').show();
+    $(this).parent('form').hide()
+  });
+
+  // Edit a memory
+  $('#render-memories').on('submit', 'form', function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    var data = $('.formInfo').serialize();
+    var memoryId = $(this).parent().parent().parent('.row').attr('id');
+    console.log(memoryId)
+    console.log(data);
+
+    $.ajax({
+      method: 'PUT',
+      url: `${memories_url}/${memoryId}`,
+      data: data,
+      success: (response) =>  {
+        $(this).siblings('.memory-desc').text(response.description);
+        $(this).siblings('.memory-date').text(response.date);
+      }
+    });
+  });
 
   // Delete
   $('#render-memories').on('click', '#delete-memory', function () {
@@ -85,8 +127,6 @@ $(document).ready(function(){
       }
     })
   });
-
-
 
 
 });

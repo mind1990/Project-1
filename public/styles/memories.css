@@ -14,3 +14,7 @@ img {
 a {
   margin: 1rem;
 }
+
+#cancel-form {
+  margin: 0;
+}
