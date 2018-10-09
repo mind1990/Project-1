@@ -8,7 +8,20 @@ $(document).ready(function(){
     method: 'GET',
     url: memories_url,
     success: (response) => {
-      console.log(response);
+      for (var i = 0; i < response.length; i++) {
+        $('#render-memories').append(`
+          <div class="row">
+            <div class="col-lg-2">
+              <h3>${response[i].title} ${response[i].name}</h3>
+            </div>
+            <div class="col-lg-8">
+              <img src="${response[i].image}">
+              <h4>${response[i].description} on ${response[i].date}</h4>
+            </div>
+          </div>
+        `)
+      }
+
     },
     error: (err) => {
       console.log(err);

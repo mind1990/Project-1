@@ -48,6 +48,15 @@ app.get('/api/users', (req, res) => {
   });
 });
 
+// Find all memories and render
+app.get('/memories'), (req, res) => {
+  db.Memory.find((err, allMemories) => {
+    if(err) throw err;
+    res.json(allMemories)
+  });
+
+}
+
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Express server is up and running on http://localhost:3000/');
