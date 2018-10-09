@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+}
+
+img {
+  max-height: 450px;
+  max-width: 450px;
+}
+
+.row {
+  margin: 2rem;
+}
