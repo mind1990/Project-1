@@ -1,0 +1,39 @@
+
+h1 {
+  padding: 2rem;
+}
+
+.about {
+  margin: 4rem;
+  padding: 2rem;
+}
+
+.about-info {
+  display: flex;
+}
+
+.about-text {
+  margin: 4rem;
+}
+
+img {
+  border-radius: 50%;
+  max-height: 400px;
+}
+
+button {
+  display: block;
+  float: right;
+}
+
+button a {
+  color: white;
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}

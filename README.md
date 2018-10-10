@@ -14,4 +14,4 @@
  - [modernizr](https://modernizr.com/docs) (for landing page slideshow)
  - jQuery
  - Express, Mongoose
- 
+ - Youtube API for videos on user profile

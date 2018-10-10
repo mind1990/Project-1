@@ -26,6 +26,10 @@ app.get('/index', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/profile', (req, res) => {
+  res.sendFile(__dirname + '/views/profile.html');
+});
+
 app.get('/memories', (req, res) => {
   res.sendFile(__dirname + '/views/memories.html');
 });
