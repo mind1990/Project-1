@@ -5,6 +5,7 @@ let memories_url = "http://localhost:3000/api/memories"
 $(document).ready(function(){
 
   function renderMemories (response) {
+    $('#render-memories').empty();
     for (var i = 0; i < response.length; i++) {
       var memoryId = response[i]._id;
       $('#render-memories').append(`
@@ -25,14 +26,18 @@ $(document).ready(function(){
   }
 
 // Render all existing memories from database
-  $.ajax({
-    method: 'GET',
-    url: memories_url,
-    success: renderMemories,
-    error: (err) => {
-      console.log(err);
-    },
-  });
+  function getMemories() {
+    $.ajax({
+      method: 'GET',
+      url: memories_url,
+      success: renderMemories,
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  getMemories();
 
 // Create memory helper function for data
   const createMemory = (formData) => {
@@ -111,7 +116,11 @@ $(document).ready(function(){
       success: (response) =>  {
         $(this).siblings('.memory-desc').text(response.description);
         $(this).siblings('.memory-date').text(response.date);
-      }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: getMemories,
     });
   });
 
@@ -125,12 +134,12 @@ $(document).ready(function(){
       method: 'DELETE',
       url: `${memories_url}/${memoryId}`,
       success: (res) => {
-        $(memoryId).remove();
+        getMemories()
       },
       error: (err) => {
         console.log(err);
       },
-      complete: renderMemories,
+      complete: getMemories,
     })
   });
 
