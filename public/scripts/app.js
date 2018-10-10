@@ -72,6 +72,9 @@ $(document).ready(function(){
       },
       error: (err) => {
         console.log(err);
+      },
+      complete: () => {
+        $('.alert').fadeOut(3000);
       }
     });
   });
@@ -145,6 +148,3 @@ $(document).ready(function(){
 
 
 });
-
-
-
