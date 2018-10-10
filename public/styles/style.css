@@ -1,6 +1,6 @@
 
 .bgimg{
-	background-image: url("/images/2.jpeg");
+	background-image: url("/images/23.jpeg");
 	background-size: 100% 100%;
 	background-attachment: fixed;
 	width: 100%;
@@ -89,7 +89,7 @@ a:hover {
 
 }
 .portfolio{
-	height: 1100px;
+	height: 600px;
 	width: 100%;
 	padding:100px 0px 50px;
 
@@ -104,12 +104,33 @@ a:hover {
 }
 .card h2{
 	
+	font-size: 20px;
+}
+
+.ourteam{
+	height: 700px;
+	padding: 100px 0px 60px;
+	width: 100%;
+	margin-bottom: 0;
+}
+.ourteam h1{
 	font-size: 30px;
+	margin-bottom: 30px;
+	
+}
+.teamsetting{
+	margin-top: 70px !important;
+
+}
+.footer{
+	margin-top: 700px;
 }
 
 
 @media(min-width: 992px){
-
+.footer{
+	margin-top: 100px;
+}
 }
 
 @media(min-width: 768px) and (max-width: 991px){
@@ -121,7 +142,7 @@ a:hover {
 @media(min-width: 480px) and (max-width: 574px){
 
 }
-@media(max-width: 579px){
+@media(max-width: 479px){
 	.headerset h2{
 	font-size: 22px;
 }
@@ -137,17 +158,24 @@ a:hover {
 	
 	height: 1200px;
 }
+.portfolio{
+	height: 2200px;
+}
+
+}
 .rowsetting h2{
 	height: 100px;
-}
-.portfolio{
-	height: 1600px;
-}
 
 }
+.footer{
+	height: 20px;
 
+}
+.ourteam{
+	margin-top: 700px;
 
-
+}
+}
 
 
 
