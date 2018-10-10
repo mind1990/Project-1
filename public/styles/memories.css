@@ -10,3 +10,11 @@ img {
 .row {
   margin: 2rem;
 }
+
+a {
+  margin: 1rem;
+}
+
+#cancel-form {
+  margin: 0;
+}

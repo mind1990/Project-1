@@ -15,11 +15,16 @@
 </head>
 <body>
   <a href="/index" class="btn btn-info btn-lg" role="button">Go Home</a>
-  <h1>Memories page</h1>
-  <a href="/create-memory" id="create-memory" class="btn btn-success btn-lg">Create New Memories</a>
+  <h1>Create new memory</h1>
+  <a href="/memories" id="create-memory" class="btn btn-danger btn-lg">Go Back</a>
   <div class="container">
-    <div id="render-memories">
-    </div>
+    <form id="create-form" action="POST">
+      <input id="mem-name" type="text" placeholder="Name">
+      <input id="mem-desc" type="text" placeholder="Description">
+      <input id="mem-url" type="text" placeholder="Image URL">
+      <input id="mem-date" type="text" placeholder="Date of event">
+      <input class="btn btn-success btn-sm" type="submit" placeholder="Create">
+    </form>
   </div>
 
 </body>

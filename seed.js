@@ -23,21 +23,18 @@ var newUser = [
 
 var newMemory = [
   {
-    title: 'Dr. ',
     name: 'Tirapat',
     description: 'Moved from New York City!',
     image: 'https://i.imgur.com/zE9ezSK.png',
     date: 'September 1st, 2018',
   },
   {
-    title: 'Mr. ',
     name: 'Mark',
     description: 'Moved from sweaty South Florida!',
     image: 'https://i.imgur.com/33ZErzy.jpg',
     date: 'September 5th, 2018',
   },
   {
-    title: 'Mr. ',
     name: 'Praveen',
     description: 'From East Bay!',
     image: 'https://i.imgur.com/jf9US6M.png',
