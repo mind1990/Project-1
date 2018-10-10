@@ -1,0 +1,22 @@
+
+body {
+  background-color: #FFF;
+}
+
+.jumbotron {
+  margin: 3rem;
+  text-align: center;
+}
+
+.create-form {
+  padding-top: 5rem;
+}
+
+h1 {
+  padding: 1rem;
+}
+
+input.form-control {
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
