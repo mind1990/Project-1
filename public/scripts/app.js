@@ -4,29 +4,31 @@ let memories_url = "http://localhost:3000/api/memories"
 
 $(document).ready(function(){
 
+  function renderMemories (response) {
+    for (var i = 0; i < response.length; i++) {
+      var memoryId = response[i]._id;
+      $('#render-memories').append(`
+        <div class="row" id="${memoryId}">
+          <div class="col-lg-2">
+            <h3>${response[i].name}</h3>
+            <div id="render-form"></div>
+            <a id="edit-memory" class="btn btn-sm btn-warning">Edit Memory</a>
+            <a id="delete-memory" class="btn btn-sm btn-danger">Delete Memory</a>
+          </div>
+          <div class="col-lg-8">
+            <img src="${response[i].image}">
+            <h4 class="memory-desc">${response[i].description}</h4> on <h4 class="memory-date">${response[i].date}</h4>
+          </div>
+        </div>
+      `)
+    }
+  }
+
 // Render all existing memories from database
   $.ajax({
     method: 'GET',
     url: memories_url,
-    success: (response) => {
-      for (var i = 0; i < response.length; i++) {
-        var memoryId = response[i]._id;
-        $('#render-memories').append(`
-          <div class="row" id="${memoryId}">
-            <div class="col-lg-2">
-              <h3>${response[i].name}</h3>
-              <div id="render-form"></div>
-              <a id="edit-memory" class="btn btn-sm btn-warning">Edit Memory</a>
-              <a id="delete-memory" class="btn btn-sm btn-danger">Delete Memory</a>
-            </div>
-            <div class="col-lg-8">
-              <img src="${response[i].image}">
-              <h4 class="memory-desc">${response[i].description}</h4> on <h4 class="memory-date">${response[i].date}</h4>
-            </div>
-          </div>
-        `)
-      }
-    },
+    success: renderMemories,
     error: (err) => {
       console.log(err);
     },
@@ -45,7 +47,7 @@ $(document).ready(function(){
       image: image,
       date: date,
     }
-}
+  }
 
   // Create
   $('#create-form').on('submit', (e) => {
@@ -119,12 +121,15 @@ $(document).ready(function(){
     $.ajax({
       method: 'DELETE',
       url: `${memories_url}/${memoryId}`,
-      success: (e) => {
-        $(memoryId).remove;
+      success: (res) => {
+        $(memoryId).remove();
       },
       error: (err) => {
         console.log(err);
-      }
+      },
+      complete: function() {
+        renderMemories();
+      },
     })
   });
 
