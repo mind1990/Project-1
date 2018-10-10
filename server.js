@@ -18,6 +18,7 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/landing.html');
 });
