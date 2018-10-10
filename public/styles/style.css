@@ -1,20 +1,26 @@
 
 .bgimg{
-	background-image: url("/images/3.jp	g");
+	background-image: url("/images/2.jpeg");
 	background-size: 100% 100%;
 	background-attachment: fixed;
 	width: 100%;
 	height: 800px;
+	background-position: cover;
 
 }
 .headerset{
 	padding-top: 200px;
 	box-sizing: border-box;
 }
+a {
+	text-transform: uppercase;
+
+}
 a:hover { 
-    background-color:orange;
+    background-color:#bf55ec;
     border-radius: 50%;
     box-sizing: border-box;
+
 }
 
 .headerset h2{
@@ -28,6 +34,14 @@ a:hover {
 	padding-bottom: 35px;
 	font-weight: bold;
 }
+ button{
+	padding: 0;
+	border: none;
+	background: none;
+	
+
+}
+
 
 /*my memories*/
 
@@ -36,7 +50,7 @@ a:hover {
 	height: 700px;
 }
 .mymemories h1{
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: bold;
 
 
@@ -51,6 +65,7 @@ a:hover {
 }
 .fa-shopping-cart{
 	margin-top: 20px;
+
 }
 .fa-slideshare{
 	margin-top: 20px;
@@ -64,10 +79,15 @@ a:hover {
 	color: #6c757d!important;
 
 }
+
 .rowsetting h2{
 	margin-top: 20px;
 }
+.rowsetting h2:hover{
+    cursor: pointer;
+	border-bottom: 2px solid #bf55ec;
 
+}
 .portfolio{
 	height: 1100px;
 	width: 100%;
@@ -75,7 +95,7 @@ a:hover {
 
 }
 .portfolio h1{
-	font-size: 36px;
+	font-size: 30px;
 	margin-bottom: 30px;
 }
 .card{
@@ -101,7 +121,7 @@ a:hover {
 @media(min-width: 480px) and (max-width: 574px){
 
 }
-@media(max-width: 479px){
+@media(max-width: 579px){
 	.headerset h2{
 	font-size: 22px;
 }
@@ -125,3 +145,9 @@ a:hover {
 }
 
 }
+
+
+
+
+
+
