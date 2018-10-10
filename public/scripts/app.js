@@ -61,6 +61,9 @@ $(document).ready(function(){
       success: (response) => {
         console.log(response);
         $('#render-memories').append(response);
+        $('h1').append(`
+          <div class='alert alert-success'>Memory successfully created!</div>
+        `)
       },
       error: (err) => {
         console.log(err);
@@ -127,9 +130,7 @@ $(document).ready(function(){
       error: (err) => {
         console.log(err);
       },
-      complete: function() {
-        renderMemories();
-      },
+      complete: renderMemories,
     })
   });
 
