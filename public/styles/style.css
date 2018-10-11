@@ -63,10 +63,11 @@ a:hover {
 	height: 100px;
 	width: 100px;
 }
+
 .fa-users{
 	margin-top: 20px;
-
 }
+
 .fa-slideshare{
 	margin-top: 20px;
 }
@@ -77,12 +78,12 @@ a:hover {
 .rowsetting p{
 	padding: 10px;
 	color: #6c757d!important;
-
 }
 
 .rowsetting h2{
 	margin-top: 20px;
 }
+
 .rowsetting h2:hover{
     cursor: pointer;
 	border-bottom: 2px solid #bf55ec;
@@ -113,66 +114,66 @@ a:hover {
 	width: 100%;
 	margin-bottom: 0;
 }
+
 .ourteam h1{
 	font-size: 30px;
 	margin-bottom: 30px;
-
 }
+
 .teamsetting{
 	margin-top: 70px !important;
 
 }
+
+.team-image {
+	margin-top: 4rem;
+}
+
 .footer{
-	margin-top: 700px;
+	padding-top: 5rem;
+	margin-top: 1rem;
 }
 
 
-@media(min-width: 992px){
-.footer{
-	margin-top: 100px;
-}
-}
-
-@media(min-width: 768px) and (max-width: 991px){
-
-}
-@media(min-width: 575px) and (max-width: 767px){
-
-}
-@media(min-width: 480px) and (max-width: 574px){
-
-}
-@media(max-width: 479px){
-	.headerset h2{
-	font-size: 22px;
-}
-.headerset h1{
-	font-size: 22px;
-	font-weight: bold;
-}
-.mymemories{
-
-	height: 1400px;
-}
-.mymemories h2{
-
-	height: 1200px;
-}
-.portfolio{
-	height: 2200px;
+@media only screen and (max-width: 992px){
+	.footer{
+		margin-top: 1rem;
+	}
 }
 
-}
-.rowsetting h2{
-	height: 100px;
+@media only screen and (max-width: 479px){
+		.headerset h2{
+		font-size: 22px;
+	}
+	.headerset h1{
+		font-size: 22px;
+		font-weight: bold;
+	}
+	.mymemories{
 
-}
-.footer{
-	height: 20px;
+		height: 1400px;
+	}
+	.mymemories h2{
 
-}
-.ourteam{
-	margin-top: 700px;
+		height: 1200px;
+	}
+	.portfolio{
+		height: 2200px;
+	}
 
-}
+	}
+	.rowsetting h2{
+		height: 100px;
+
+	}
+	.footer{
+		height: 20px;
+		padding-top: 40rem;
+		margin-top: 3rem;
+
+	}
+	.ourteam{
+		margin-top: 700px;
+
+	}
 }
