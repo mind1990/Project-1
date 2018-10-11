@@ -7,6 +7,16 @@ img {
   max-width: 450px;
 }
 
+nav {
+  margin-bottom: 5rem;
+}
+
+.header {
+  text-align: center;
+  padding-top: 3rem;
+  margin-top: 3rem;
+}
+
 .row {
   margin: 2rem;
 }
