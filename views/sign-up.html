@@ -40,7 +40,7 @@
             <a href="/index" class="nav-link text-white">About</a>
            </li>
            <li class="nav-item">
-            <a href="" class="nav-link text-white">Contact</a>
+            <a href="/login" class="nav-link text-white">Login</a>
            </li>
           </ul>
         </div>
@@ -49,12 +49,10 @@
   <div class="container create-form">
     <div class="jumbotron">
       <h1>Sign Up!</h1>
-      <form id="sign-up" action="POST">
-        <input class="form-control" id="user-name" type="text" placeholder="User Name">
-        <input class="form-control" id="user-email" type="email" placeholder="Email">
-        <input class="form-control" id="user-pass" type="text" placeholder="Password">
-        <input class="form-control" id="confirm-pass" type="text" placeholder="Confirm Password">
-        <input class="btn btn-success btn-lg" type="submit" placeholder="Create Account">
+      <form id="sign-up" action="/sign-up" method="POST">
+        <input class="form-control" id="user-name" name="username" type="text" placeholder="User Name">
+        <input class="form-control" id="user-pass" name="password" type="password" placeholder="Password">
+        <input class="btn btn-success btn-lg" type="submit" value="Create Account">
         <a href="/index" id="create-memory" class="btn btn-danger btn-lg">Go Back</a>
       </form>
     </div>
