@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const passport = require('passport');
+const User = require('./models/user')
+const LocalStrategy = require('passport-local');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -18,7 +21,20 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
+// Passport config
+app.use(require('express-session')({
+  secret: "PTM Project",
+  resave: false,
+  saveUninitialized: false
+}));
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Routes
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/landing.html');
 });
@@ -27,12 +43,7 @@ app.get('/index', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/sign-up', (req, res) => {
-  res.sendFile(__dirname + '/views/sign-up.html');
-});
-
-
-app.get('/profile', (req, res) => {
+app.get('/profile', isLoggedIn, (req, res) => {
   res.sendFile(__dirname + '/views/profile.html');
 });
 
@@ -99,6 +110,51 @@ app.delete('/api/memories/:id', (req, res) => {
   });
 });
 
+// Auth Routes
+app.get('/sign-up', (req, res) => {
+  res.sendFile(__dirname + '/views/sign-up.html');
+});
+
+// Handle sign up
+app.post('/sign-up', (req, res) => {
+  let newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password, (err, user) => {
+    if (err) {
+      console.log(err);
+      return res.render('sign-up')
+    }
+    passport.authenticate('local')(req, res, function() {
+      res.redirect('/index');
+    })
+  })
+});
+
+// Show Login form
+app.get("/login", (req, res) => {
+  res.sendFile(__dirname + '/views/login.html');
+})
+
+// Handle Login
+app.post('/login', passport.authenticate('local',
+  {
+    successRedirect: '/index',
+    failureRedirect: '/login'
+  }),
+(req, res) => {
+});
+
+// Logout Routes
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/index');
+})
+
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('login');
+}
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('Express server is up and running on http://localhost:3000/');

@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="styles/memories.css">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles/create-form.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,11 +17,11 @@
   <title>Project One: By Praveen, Tirapat, and Mark</title>
 </head>
 <body>
-
+  <!-- <a href="/index" class="btn btn-info btn-lg" role="button">Home</a> -->
   <nav class ="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
 
     <div class="container">
-      <a href="" class="navbar-brand text-warning font-weight-bold"> SCRAP BOOK</a>
+      <a href="/" class="navbar-brand text-warning font-weight-bold"> SCRAP BOOK</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">
         <span class="navbar-toggler-icon"> </span>
@@ -39,26 +37,21 @@
             <a href="/memories" class="nav-link text-white">Memories</a>
            </li>
            <li class="nav-item">
-            <a href="/profile" class="nav-link text-white">User</a>
-           </li>
-           <li class="nav-item">
             <a href="/index#about" class="nav-link text-white">About</a>
-           </li>
-           <li class="nav-item">
-            <a href="/logout" class="nav-link text-white">Logout</a>
            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="container header">
-      <h1>My Memories</h1>
-      <a href="/profile" class="btn btn-info btn-lg" role="button">My Profile</a>
-      <a href="/create-memory" id="create-memory" class="btn btn-success btn-lg">Create New Memories</a>
-    </div>
-
-  <div class="container">
-    <div id="render-memories">
+  <div class="container create-form">
+    <div class="jumbotron">
+      <h1>Login to your account!</h1>
+      <form id="sign-up" action="/login" method="POST">
+        <input class="form-control" id="user-name" name="username" type="text" placeholder="User Name">
+        <input class="form-control" id="user-pass" name="password" type="password" placeholder="Password">
+        <input class="btn btn-success btn-lg" type="submit" value="Login">
+        <a href="/index" id="create-memory" class="btn btn-danger btn-lg">Go Back</a>
+      </form>
     </div>
   </div>
 
