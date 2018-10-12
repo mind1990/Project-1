@@ -1,6 +1,31 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-color: #f8f8f8;
+}
 
 h1 {
   padding: 2rem;
+}
+
+.jumbotron {
+  margin-top: 2rem;
+}
+
+.btn {
+  color: #FFF;
+}
+
+#map {
+  height: 600px;
+  margin-top: 60px;
+}
+
+.map-section {
+  padding: 4rem;
+  text-align: center;
 }
 
 .about {
@@ -16,7 +41,7 @@ h1 {
   margin: 4rem;
 }
 
-img {
+.profile-image {
   border-radius: 50%;
   max-height: 400px;
 }

@@ -1,6 +1,7 @@
 console.log("Our app.js is connected");
 
 let memories_url = "http://localhost:3000/api/memories"
+var map;
 
 $(document).ready(function(){
 
@@ -152,5 +153,14 @@ $(document).ready(function(){
     })
   });
 
+  // Initialize map
+  function initMap() {
+   map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: 40.730610, lng: -73.935242},
+     zoom: 8,
+   });
+  }
+
+  initMap();
 
 });
