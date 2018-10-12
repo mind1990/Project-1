@@ -1,7 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   text-align: center;
 }
 
+header {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.memory-buttons {
+  padding: 5rem;
+  text-align: center;
+}
+
+.dateAndPhotos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+a {
+  color: #FFF;
+}
+
+aside {
+  display: flex;
+  flex-direction: row;
+  /*margin: 10px;*/
+  width: 276px;
+}
+
+main {
+  width: 614px;
+}
+
+.date {
+  margin: 0 10px;
+  width: 90px;
+}
+
+.sticky {
+  position: sticky;
+  top: 70px;
+}
+
+.photo-body {
+  text-align: center;
+}
+
+/*
 img {
   max-height: 450px;
   max-width: 450px;
@@ -27,4 +82,120 @@ a {
 
 #cancel-form {
   margin: 0;
+} */
+
+/* ---------------- PHOTOS ---------------------------*/
+
+.photo {
+  margin-bottom: 40px;
 }
+
+img {
+  width: 100%;
+}
+
+.photo-body {
+  margin-top: 20px;
+}
+
+/* ---------------- SUBMIT BOTTON ---------------------*/
+
+.btn {
+
+  background-color: #FF9400;
+  border: none;
+}
+
+
+
+/* ------------------------- MEDIA QUERIES -----------------------------*/
+
+@media only screen and (max-width: 911px) {
+
+  .dateAndPhotos {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+
+  .dateAndPhotos {
+    flex-direction: column;
+  }
+
+  header {
+    margin: 120px 0 70px;
+  }
+
+}
+
+@media only screen and (max-width: 620px) {
+
+  header {
+    margin: 110px 0 50px;
+  }
+
+  main {
+    width: 520px;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+
+  header {
+    margin: 100px 0 40px;
+  }
+
+  main {
+    width: 490px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  header {
+    margin: 90px 0 30px;
+  }
+
+  main {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+
+  header {
+    margin: 80px 0 20px;
+  }
+
+  main {
+    width: 390px;
+  }
+}
+
+
+/*@media(max-width: 479px){
+  .headerset h2{
+  font-size: 22px;
+}
+.headerset h1{
+  font-size: 32px;
+  font-weight: bold;
+}
+.mymemories{
+
+  height: 1200px;
+}
+.mymemories h2{
+
+  height: 1200px;
+}
+.rowsetting h2{
+  height: 3500px;
+}
+.portfolio{
+  height: 3500px;
+}
+}*/
