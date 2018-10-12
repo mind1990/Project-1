@@ -14,14 +14,14 @@ $(document).ready(function(){
           <aside>
             <div class="date sticky"><h3 class="sticky">${response[i].date}</h3></div>
           </aside>
-          <main>
+          <main class="jumbotron">
             <div class="photo"><img src="${response[i].image}" alt="image">
               <div class="photo-body">
                 <h3 class="photo-title">${response[i].name}</h3>
                 <h4 class="photo-text">${response[i].description}</h4>
                 <div id="render-form"></div>
-                <a id="edit-memory" class="btn btn-sm btn-warning">Edit Memory</a>
-                <a id="delete-memory" class="btn btn-sm btn-danger">Delete Memory</a>
+                <a id="edit-memory" class="btn btn-sm">Edit Memory</a>
+                <a id="delete-memory" class="btn btn-sm">Delete Memory</a>
               </div>
             </div>
           </main>
