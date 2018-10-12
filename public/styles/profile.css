@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #f8f8f8;
+  background-color: #f8f8f8 !important;
 }
 
 h1 {
@@ -26,6 +26,11 @@ h1 {
 .map-section {
   padding: 4rem;
   text-align: center;
+}
+
+hr {
+  color: #000;
+  margin: 0 4rem;
 }
 
 .about {

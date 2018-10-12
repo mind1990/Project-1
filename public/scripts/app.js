@@ -155,10 +155,18 @@ $(document).ready(function(){
 
   // Initialize map
   function initMap() {
-   map = new google.maps.Map(document.getElementById('map'), {
-     center: {lat: 40.730610, lng: -73.935242},
-     zoom: 8,
+    var myLatLng = {lat: 40.7595, lng: -73.9784};
+
+    map = new google.maps.Map(document.getElementById('map'), {
+     center: myLatLng,
+     zoom: 10,
+    });
+
+   var pin =  new google.maps.Marker({
+     position: myLatLng,
+     map: map
    });
+
   }
 
   initMap();
