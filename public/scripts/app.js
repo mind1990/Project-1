@@ -1,6 +1,7 @@
 console.log("Our app.js is connected");
 
 let memories_url = "http://localhost:3000/api/memories"
+var map;
 
 $(document).ready(function(){
 
@@ -9,17 +10,21 @@ $(document).ready(function(){
     for (var i = 0; i < response.length; i++) {
       var memoryId = response[i]._id;
       $('#render-memories').append(`
-        <div class="row" id="${memoryId}">
-          <div class="col-lg-2">
-            <h3>${response[i].name}</h3>
-            <div id="render-form"></div>
-            <a id="edit-memory" class="btn btn-sm btn-warning">Edit Memory</a>
-            <a id="delete-memory" class="btn btn-sm btn-danger">Delete Memory</a>
-          </div>
-          <div class="col-lg-8">
-            <img src="${response[i].image}">
-            <h4 class="memory-desc">${response[i].description}</h4> on <h4 class="memory-date">${response[i].date}</h4>
-          </div>
+        <div class="dateAndPhotos" id="${memoryId}">
+          <aside>
+            <div class="date sticky"><h3 class="sticky">${response[i].date}</h3></div>
+          </aside>
+          <main>
+            <div class="photo"><img src="${response[i].image}" alt="image">
+              <div class="photo-body">
+                <h3 class="photo-title">${response[i].name}</h3>
+                <h4 class="photo-text">${response[i].description}</h4>
+                <div id="render-form"></div>
+                <a id="edit-memory" class="btn btn-sm btn-warning">Edit Memory</a>
+                <a id="delete-memory" class="btn btn-sm btn-danger">Delete Memory</a>
+              </div>
+            </div>
+          </main>
         </div>
       `)
     }
@@ -81,8 +86,9 @@ $(document).ready(function(){
 
 // Edit click listener
   $('#render-memories').on('click', '#edit-memory', function() {
-    let editMemoryDesc = $(this).parent().siblings('.col-lg-8').children('.memory-desc').text();
-    let editMemoryDate = $(this).parent().siblings('.col-lg-8').children('.memory-date').text();
+    let editMemoryDesc = $(this).siblings('.photo-text').text();
+    // Ewwwww this chaininggg thoughhhh
+    let editMemoryDate = $(this).parent().parent().parent().siblings('aside').children('.date').children('h3').text();
     console.log(editMemoryDesc);
     console.log(editMemoryDate);
     $(this).hide();
@@ -108,7 +114,7 @@ $(document).ready(function(){
     e.stopImmediatePropagation();
 
     var data = $('.formInfo').serialize();
-    var memoryId = $(this).parent().parent().parent('.row').attr('id');
+    var memoryId = $(this).parent().parent().parent().parent().parent('.dateAndPhotos').attr('id');
     console.log(memoryId)
     console.log(data);
 
@@ -117,6 +123,7 @@ $(document).ready(function(){
       url: `${memories_url}/${memoryId}`,
       data: data,
       success: (response) =>  {
+        getMemories();
         $(this).siblings('.memory-desc').text(response.description);
         $(this).siblings('.memory-date').text(response.date);
       },
@@ -129,7 +136,7 @@ $(document).ready(function(){
 
   // Delete
   $('#render-memories').on('click', '#delete-memory', function () {
-    var memoryId = $(this).parent().parent('.row').attr('id');
+    var memoryId = $(this).parent().parent().parent().parent('.dateAndPhotos').attr('id');
     console.log(memoryId);
     console.log('click');
 
@@ -146,5 +153,14 @@ $(document).ready(function(){
     })
   });
 
+  // Initialize map
+  function initMap() {
+   map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: 40.730610, lng: -73.935242},
+     zoom: 8,
+   });
+  }
+
+  initMap();
 
 });

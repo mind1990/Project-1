@@ -7,8 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="styles/profile.css">
   <link rel="icon" href="/images/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
+  <script src="scripts/app.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -50,29 +54,30 @@
     </nav>
 
     <div class="container about">
-      <h1>About Me</h1>
-      <div class="about-info">
-        <img src="/images/tirapat.png" alt="Profile pic">
-        <div class="about-text">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Repudiandae consectetur tempore enim repellat ipsa laboriosam reprehenderit nisi quae facere aperiam consequuntur,
-            reiciendis cum voluptatum quam, et illum, ipsum alias autem!
-            <br>
-            <br>
-            &dash; Tirapat
-          </p>
+      <div class="jumbotron">
+        <h1>About Me</h1>
+        <div class="about-info">
+          <img class="profile-image" src="/images/tirapat.png" alt="Profile pic">
+          <div class="about-text">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Repudiandae consectetur tempore enim repellat ipsa laboriosam reprehenderit nisi quae facere aperiam consequuntur,
+              reiciendis cum voluptatum quam, et illum, ipsum alias autem!
+              <br>
+              <br>
+              &dash; Tirapat
+            </p>
+          </div>
         </div>
-      </div>
 
-      <button class="btn btn-lg btn-info"><a href="/memories">View My Memories!</a></button>
+        <button class="btn btn-lg btn-info"><a href="/memories">View My Memories!</a></button>
+      </div>
     </div>
 
     <hr>
     <div class="container video-section">
       <h1>My Featured Videos</h1>
       <div id="player"></div>
-
       <script>
         // 2. This code loads the IFrame Player API code asynchronously.
         var tag = document.createElement('script');
@@ -88,7 +93,7 @@
           player = new YT.Player('player', {
             height: '390',
             width: '640',
-            videoId: 'eBHDKfPaJ5A',
+            videoId: 'AQIktivlKbk',
             events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
@@ -115,11 +120,15 @@
           player.stopVideo();
         }
       </script>
+
+    </div>
+    <div class="container map-section">
+      <h1>My Memory Locations</h1>
+      <div id="map"></div>
     </div>
 
 
 
-<script src="scripts/app.js"></script>
 
 </body>
 </html>
