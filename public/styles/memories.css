@@ -5,7 +5,25 @@
 }
 
 body {
+  background-color: #e9f0f4 !important;
   text-align: center;
+}
+
+.navbar a {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  background-color: #d4a674;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3rem !important;
+}
+
+.jumbotron {
+  background-color: #FFF !important;
 }
 
 header {
@@ -14,7 +32,6 @@ header {
 
 aside {
   margin: 2rem;
-
 }
 
 .date.sticky {
@@ -37,10 +54,18 @@ aside {
   justify-content: center;
   margin: 2rem;
   padding-left: 6rem;
-  border-left: 2px solid #e8ecef;
+  border-left: 2px solid #000;
 }
 
-a {
+#edit-memory {
+  color: #FFF;
+}
+
+#delete-memory {
+  color: #FFF;
+}
+
+#cancel-form {
   color: #FFF;
 }
 
@@ -69,33 +94,6 @@ main {
   text-align: center;
 }
 
-/*
-img {
-  max-height: 450px;
-  max-width: 450px;
-}
-
-nav {
-  margin-bottom: 5rem;
-}
-
-.header {
-  text-align: center;
-  padding-top: 3rem;
-  margin-top: 3rem;
-}
-
-.row {
-  margin: 2rem;
-}
-
-a {
-  margin: 1rem;
-}
-
-#cancel-form {
-  margin: 0;
-} */
 
 /* ---------------- PHOTOS ---------------------------*/
 
@@ -187,28 +185,3 @@ img {
     width: 390px;
   }
 }
-
-
-/*@media(max-width: 479px){
-  .headerset h2{
-  font-size: 22px;
-}
-.headerset h1{
-  font-size: 32px;
-  font-weight: bold;
-}
-.mymemories{
-
-  height: 1200px;
-}
-.mymemories h2{
-
-  height: 1200px;
-}
-.rowsetting h2{
-  height: 3500px;
-}
-.portfolio{
-  height: 3500px;
-}
-}*/
