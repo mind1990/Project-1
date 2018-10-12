@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #e9f0f4 !important;
+  background-color: #f5f5f5 !important;
   text-align: center;
 }
 
@@ -16,6 +16,7 @@ body {
 .navbar a:hover {
   background-color: #d4a674;
   box-sizing: border-box;
+
 }
 
 h1 {
