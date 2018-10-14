@@ -61,7 +61,6 @@ db.Memory.deleteMany({}, (err, deletedMemories) => {
               savedMemory.save((err, updatedUser) => {
 
               });
-              // process.exit();
             }
           });
         })

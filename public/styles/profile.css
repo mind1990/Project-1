@@ -10,6 +10,16 @@ h1 {
   padding: 2rem;
 }
 
+.navbar a {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  background-color: #d4a674;
+  box-sizing: border-box;
+  border-radius: 10%;
+}
+
 .jumbotron {
   margin-top: 2rem;
 }

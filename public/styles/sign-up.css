@@ -7,6 +7,16 @@ body {
   background-color: #FFF;
 }
 
+.nav-item a {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-item a:hover {
+  background-color: #d4a674;
+  box-sizing: border-box;
+  border-radius: 10%;
+}
+
 .jumbotron {
   margin: 3rem;
   text-align: center;
