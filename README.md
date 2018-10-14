@@ -15,3 +15,4 @@
  - jQuery
  - Express, Mongoose
  - Youtube API for videos on user profile
+ - Passport.js for authentication
